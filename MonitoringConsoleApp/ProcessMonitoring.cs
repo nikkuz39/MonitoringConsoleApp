@@ -84,6 +84,8 @@ namespace MonitoringConsoleApp
                         break;
                     }
 
+                    CloseProgram();
+
                     Thread.Sleep(60000 * processCheckInterval);
                     time++;
                     processes = Process.GetProcessesByName(processName);
@@ -100,6 +102,16 @@ namespace MonitoringConsoleApp
                 WriteLog("Контроль завершен");
                 Console.WriteLine("Контроль завершен");
             }
+        }
+
+        // Метод закрывающий приложение
+        private void CloseProgram()
+        {
+            Console.WriteLine("Чтобы завершить программу, нажмите 'Q'");
+            string closePro = Console.ReadLine();
+
+            if (closePro.ToUpper() == "Q")
+                Environment.Exit(0);
         }
     }
 }
