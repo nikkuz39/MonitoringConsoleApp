@@ -84,8 +84,6 @@ namespace MonitoringConsoleApp
                         break;
                     }
 
-                    CloseProgram();
-
                     Thread.Sleep(60000 * processCheckInterval);
                     time++;
                     processes = Process.GetProcessesByName(processName);
